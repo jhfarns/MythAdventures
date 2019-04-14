@@ -8,7 +8,8 @@ package Model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 /**
  *
  * @author Jhfar
@@ -31,9 +32,11 @@ public class MythConnections {
     public static void closeConnection() throws ClassNotFoundException, SQLException, Exception{
         conn.close();
         System.out.println("Connection Successful, Welcome back to Claw");
-        
-        
-    //May consider adding a get current user function to return the current user
-    
+            
+    }
+    public static PreparedStatement preparedStatement(String statement) throws SQLException {
+        conn = DriverManager.getConnection(DB_URL, username, password);
+        PreparedStatement ps = conn.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS);
+        return ps;
     }
 }

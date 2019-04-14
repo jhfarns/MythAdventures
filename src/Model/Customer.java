@@ -18,6 +18,7 @@ import javafx.beans.property.StringProperty;
 public class Customer {
     StringProperty name = new SimpleStringProperty();
     StringProperty address = new SimpleStringProperty();
+    StringProperty address2 = new SimpleStringProperty();
     StringProperty city = new SimpleStringProperty();
     StringProperty country = new SimpleStringProperty();
     StringProperty postalCode = new SimpleStringProperty();
@@ -29,6 +30,7 @@ public class Customer {
     public Customer(Integer custId){
         this.custId.set(custId);
         String address = "";
+        String address2 = "";
         String postalCode = "";
         String phone = "";
         String country = "";
@@ -51,6 +53,7 @@ public class Customer {
         result = Query.getResult();
         result.first();
         address = result.getString("address");
+        address2 = result.getString("address2");
         postalCode = result.getString("postalCode");
         phone = result.getString("phone");
         cityId = result.getInt("cityId");
@@ -73,6 +76,7 @@ public class Customer {
         }
         
         this.address.set(address);
+        this.address2.set(address2);
         this.country.set(country);
         this.city.set(city);
         this.postalCode.set(postalCode);
@@ -88,6 +92,10 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address.set(address);
+    }
+    
+    public void setAddress2(String address) {
+        this.address2.set(address);
     }
 
     public void setPhone(String phone) {
@@ -120,6 +128,10 @@ public class Customer {
 
     public String getAddress() {
         return address.get();
+    }
+    
+    public String getAddress2() {
+        return address2.get();
     }
 
     public String getPhone() {

@@ -6,21 +6,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="View_Controller.CustomerRecordsAddController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.CustomerRecordsAddController">
    <children>
       <Label fx:id="labedTitle" layoutX="183.0" layoutY="37.0" text="Add Customer Record">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="labelName" layoutX="71.0" layoutY="97.0" text="Name" />
-      <Label fx:id="labelAddress" layoutX="71.0" layoutY="158.0" text="Address" />
-      <Label fx:id="labelPhoneNumber" layoutX="63.0" layoutY="212.0" text="Phone Number" />
+      <Label fx:id="labelName" layoutX="61.0" layoutY="97.0" text="Name" />
+      <Label fx:id="labelAddress" layoutX="66.0" layoutY="127.0" text="Address" />
+      <Label fx:id="labelPhoneNumber" layoutX="63.0" layoutY="287.0" text="Phone Number" />
       <TextField fx:id="textFieldName" layoutX="183.0" layoutY="93.0" text="Name" />
-      <TextField fx:id="textFieldPhone" layoutX="183.0" layoutY="208.0" text="Phone Number" />
-      <TextField fx:id="textFieldAddress" layoutX="183.0" layoutY="154.0" text="Address" />
-      <Button fx:id="buttonSave" layoutX="345.0" layoutY="324.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="81.0" text="Save" />
-      <Button fx:id="buttonCancel" layoutX="449.0" layoutY="324.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="81.0" text="Cancel" />
+      <TextField fx:id="textFieldPhone" layoutX="183.0" layoutY="283.0" text="555-555-5555" />
+      <TextField fx:id="textFieldAddress" layoutX="183.0" layoutY="123.0" text="1234 Frumple Lane" />
+      <Button fx:id="buttonSave" layoutX="345.0" layoutY="324.0" mnemonicParsing="false" onAction="#saveFunction" prefHeight="43.0" prefWidth="81.0" text="Save" />
+      <Button fx:id="buttonCancel" layoutX="449.0" layoutY="324.0" mnemonicParsing="false" onAction="#cancelFunction" prefHeight="43.0" prefWidth="81.0" text="Cancel" />
+      <Label fx:id="labelCity" layoutX="66.0" layoutY="192.0" text="City" />
+      <Label fx:id="labelPostal" layoutX="71.0" layoutY="253.0" text="Postal Code" />
+      <Label fx:id="labelCountry" layoutX="66.0" layoutY="222.0" text="Country" />
+      <TextField fx:id="textFieldCity" layoutX="183.0" layoutY="188.0" text="Bazaar " />
+      <TextField fx:id="textFieldCountry" layoutX="183.0" layoutY="218.0" text="Deva" />
+      <TextField fx:id="textFieldPostal" layoutX="183.0" layoutY="249.0" text="1234567890" />
+      <Label fx:id="labelAddress2" layoutX="66.0" layoutY="160.0" text="Address 2" />
+      <TextField fx:id="textFieldAddress2" layoutX="183.0" layoutY="156.0" />
    </children>
 </AnchorPane>

@@ -6,7 +6,9 @@
 package Model;
 
 import static Model.MythConnections.conn;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -38,8 +40,23 @@ public class Query {
     public static ResultSet getResult() {
         return result;
     }
-
-    static void makeQuery() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public static Statement returnStmt() {
+        return stmt;
+    }
+    
+    public static String currentUser() throws SQLException{
+        Query.makeQuery("SELECT * FROM user WHERE active = 1");
+        ResultSet result = Query.getResult();
+        result.first();
+        String currentUser = result.getString("userName");
+        return currentUser;
+    }
+    
+    public static Integer generatedKeys(PreparedStatement ps) throws SQLException {
+        ResultSet result = ps.getGeneratedKeys();
+        result.first();
+        Integer generatedKey = result.getInt(1);
+        return generatedKey;
     }
 }

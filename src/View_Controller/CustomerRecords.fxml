@@ -21,9 +21,9 @@
             <TableColumn fx:id="tableColumnPhone" prefWidth="101.0" text="Phone Number" />
         </columns>
       </TableView>
-      <Button fx:id="buttonAdd" layoutX="57.0" layoutY="322.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="90.0" text="Add" />
+      <Button fx:id="buttonAdd" layoutX="57.0" layoutY="322.0" mnemonicParsing="false" onAction="#addFunction" prefHeight="43.0" prefWidth="90.0" text="Add" />
       <Button fx:id="buttonHome" layoutX="451.0" layoutY="322.0" mnemonicParsing="false" onAction="#homeFunction" prefHeight="43.0" prefWidth="90.0" text="Home" />
-      <Button fx:id="buttonDelete" layoutX="326.0" layoutY="322.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="90.0" text="Delete" />
-      <Button fx:id="buttonUpdate" layoutX="184.0" layoutY="322.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="90.0" text="Update" />
+      <Button fx:id="buttonDelete" layoutX="326.0" layoutY="322.0" mnemonicParsing="false" onAction="#deleteFunction" prefHeight="43.0" prefWidth="90.0" text="Delete" />
+      <Button fx:id="buttonUpdate" layoutX="184.0" layoutY="322.0" mnemonicParsing="false" onAction="#updateFunction" prefHeight="43.0" prefWidth="90.0" text="Update" />
    </children>
 </AnchorPane>

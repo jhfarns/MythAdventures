@@ -4,7 +4,6 @@ import Model.Customer;
 import Model.Query;
 import java.io.IOException;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -55,6 +54,35 @@ public class CustomerRecordsController {
         rootPane.getChildren().setAll(homeScreenPane);
     }
 
+    @FXML void addFunction() throws IOException{
+        FXMLLoader homeScreen = new FXMLLoader(getClass().getResource("CustomerRecordsAdd.fxml"));
+        AnchorPane homeScreenPane = homeScreen.load();
+        rootPane.getChildren().setAll(homeScreenPane);
+        
+    }
+    
+    @FXML void updateFunction() throws IOException {
+        //select the row to be updated.
+        
+        Customer selectedCustomer = tableColumnCustomerRecords.getSelectionModel().getSelectedItem();
+        
+        if(selectedCustomer != null){
+            
+            FXMLLoader homeScreen = new FXMLLoader(getClass().getResource("CustomerRecordsUpdate.fxml"));
+            AnchorPane homeScreenPane = homeScreen.load();
+            rootPane.getChildren().setAll(homeScreenPane);
+            
+            CustomerRecordsUpdateController addingCustomer = homeScreen.getController();
+            addingCustomer.addCustomer(selectedCustomer.getCustId());
+        }
+        
+        
+    }
+    
+    @FXML void deleteFunction(){
+        return;
+    }
+    
     private ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
     private ResultSet customerResultSet;
     
