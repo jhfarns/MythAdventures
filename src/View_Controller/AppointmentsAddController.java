@@ -90,8 +90,8 @@ public class AppointmentsAddController {
     @FXML
     void saveFunction(ActionEvent event) throws SQLException, IOException {
         
-        Calendar calendarStart = Calendar.getInstance(timeZone, locale);
-        Calendar calendarEnd = Calendar.getInstance(timeZone, locale);
+        Calendar calendarStart = Calendar.getInstance();
+        Calendar calendarEnd = Calendar.getInstance();
 
         Integer startYear = Integer.parseInt(textFieldStartYear.getText());
         Integer startMonth = Integer.parseInt(textFieldStartMonth.getText());
