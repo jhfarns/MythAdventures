@@ -120,7 +120,7 @@ public class AppointmentsAddController {
         calendarStart.set(startYear, startMonth, startDate, startHourOfDay, startMinute);
         calendarEnd.set(endYear, endMonth, endDate, endHourOfDay, endMinute);
         //convert calendar objects to utc
-        TimeZone.setDefault(GMT);
+        //TimeZone.setDefault(GMT);
         //declare startTime and endTime variables
         startTime = new java.sql.Timestamp(calendarStart.getTimeInMillis());
         endTime = new java.sql.Timestamp(calendarEnd.getTimeInMillis());

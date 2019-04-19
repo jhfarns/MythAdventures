@@ -7,13 +7,6 @@ package Model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.TimeZone;
 import javafx.beans.property.IntegerProperty;
@@ -51,10 +44,8 @@ public class Appointment {
     StringProperty start = new SimpleStringProperty();
     StringProperty end = new SimpleStringProperty();
     
-    TimeZone GMT = TimeZone.getTimeZone("GMT");
-    TimeZone myTimeZone = TimeZone.getDefault();
-    Calendar startTime = Calendar.getInstance(GMT);
-    Calendar endTime = Calendar.getInstance(GMT);
+    Calendar startTime = Calendar.getInstance();
+    Calendar endTime = Calendar.getInstance();
 
     public void setAppointmentId(Integer appointmentId) {
         this.appointmentId.set(appointmentId);
@@ -236,50 +227,26 @@ public class Appointment {
          customerId.set(result.getInt("customerId")); 
          userId.set(result.getInt("userId")); 
 
+         startYear.set(startTime.get(Calendar.YEAR)); 
+         startMonth.set(startTime.get(Calendar.MONTH)); 
+         startDate.set(startTime.get(Calendar.DAY_OF_MONTH));
+         startHour.set(startTime.get(Calendar.HOUR_OF_DAY)); 
+         startMinute.set(startTime.get(Calendar.MINUTE));
+
+         endYear.set(endTime.get(Calendar.YEAR));
+         endMonth.set(endTime.get(Calendar.MONTH));
+         endDate.set(endTime.get(Calendar.DAY_OF_MONTH));
+         endHour.set(endTime.get(Calendar.HOUR_OF_DAY));
+         endMinute.set(endTime.get(Calendar.MINUTE));
+
          title.set(result.getString("title"));
+	 start.set(startTime.getTime().toString());
+	 end.set(endTime.getTime().toString());
          description.set(result.getString("description"));
          location.set(result.getString("location"));
          contact.set(result.getString("contact"));
          type.set(result.getString("type"));
          url.set(result.getString("url"));
-
-	 DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss'.0'");
-	 String startString = result.getString("start");
-	 String endString = result.getString("end");
-	 
-	 LocalDateTime ldtStart = LocalDateTime.parse(startString, dt);
-	 LocalDateTime ldtEnd = LocalDateTime.parse(endString, dt);
-	 
-	 ZoneId zid = ZoneId.systemDefault();
-	 ZoneId GMT = ZoneId.of("UTC");
-	 ZonedDateTime zdtStart = ldtStart.atZone(GMT); 
-	 ZonedDateTime zdtEnd = ldtEnd.atZone(GMT);
-
-	 startYear.set(zdtStart.getDayOfYear()); 
-         startMonth.set(zdtStart.getMonthValue()); 
-         startDate.set(zdtStart.getDayOfMonth());
-         startHour.set(zdtStart.getHour()); 
-         startMinute.set(zdtStart.getMinute());
-
-         endYear.set(zdtEnd.getYear());
-         endMonth.set(zdtEnd.getMonthValue());
-         endDate.set(zdtEnd.getDayOfMonth());
-         endHour.set(zdtEnd.getHour());
-         endMinute.set(zdtEnd.getMinute());
-
-	 Timestamp tsStart = Timestamp.valueOf(zdtStart.toLocalDateTime());
-	 Timestamp tsEnd = Timestamp.valueOf(zdtEnd.toLocalDateTime());
-	 Timestamp tstest = Timestamp.valueOf(result.getString("start"));
-
-	 start.set(tsStart.toString());
-	 end.set(tsEnd.toString());
-	 
-	 Instant instant = Instant.now();
-	 ZoneOffset currentOffsetForMyZone = zid.getRules().getOffset(instant);
-	
-	 ZonedDateTime test = tstest.toInstant().atZone(GMT);
-	 System.out.println(ldtStart.atOffset(currentOffsetForMyZone));
-
     }
     
     
