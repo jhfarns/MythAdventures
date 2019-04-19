@@ -102,9 +102,10 @@ public class CustomerRecordsUpdateController {
     @FXML
     void saveFunction(ActionEvent event) throws SQLException, IOException {
         //Customer - update time/who changed
-        PreparedStatement ps4 = MythConnections.preparedStatement("UPDATE customer SET customerName = ? WHERE customerId = ?");
+        PreparedStatement ps4 = MythConnections.preparedStatement("UPDATE customer SET customerName = ?, lastUpdate = NOW(), lastUpdateBy = ? WHERE customerId = ?");
         ps4.setString(1, textFieldName.getText());
-        ps4.setInt(2, custId);
+        ps4.setString(2, Query.currentUser());
+        ps4.setInt(3, custId);
         ps4.executeUpdate();
         Query.makeQuery("SELECT * FROM customer WHERE customerId = " + custId);
         ResultSet result = Query.getResult();
@@ -112,12 +113,13 @@ public class CustomerRecordsUpdateController {
         addressId = result.getInt("addressId");
         
         //Address - update time/who changed
-        PreparedStatement ps3 = MythConnections.preparedStatement("UPDATE address SET address = ?, address2 = ?, postalCode = ?, phone = ? WHERE addressId = ?");
+        PreparedStatement ps3 = MythConnections.preparedStatement("UPDATE address SET address = ?, address2 = ?, postalCode = ?, phone = ?, lastUpdate = NOW(), lastUpdateBy = ? WHERE addressId = ?");
         ps3.setString(1, textFieldAddress.getText());
         ps3.setString(2, textFieldAddress2.getText());
         ps3.setString(3, textFieldPostal.getText());
         ps3.setString(4, textFieldPhone.getText());
-        ps3.setInt(5, addressId);
+        ps3.setString(5, Query.currentUser());
+        ps3.setInt(6, addressId);
         ps3.executeUpdate();
         Query.makeQuery("SELECT * FROM address WHERE addressId = " + addressId);
         result = Query.getResult();

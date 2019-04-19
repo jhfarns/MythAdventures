@@ -53,6 +53,14 @@ public class Query {
         return currentUser;
     }
     
+        public static Integer currentId() throws SQLException{
+        Query.makeQuery("SELECT * FROM user WHERE active = 1");
+        ResultSet result = Query.getResult();
+        result.first();
+        Integer currentUser = result.getInt("userId");
+        return currentUser;
+    }
+    
     public static Integer generatedKeys(PreparedStatement ps) throws SQLException {
         ResultSet result = ps.getGeneratedKeys();
         result.first();

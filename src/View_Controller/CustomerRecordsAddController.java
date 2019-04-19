@@ -40,8 +40,7 @@ public class CustomerRecordsAddController {
     private TextField textFieldAddress;
     
     @FXML
-    private TextField textFieldAddress2
-            ;
+    private TextField textFieldAddress2;
     @FXML
     private Button buttonSave;
 

@@ -1,6 +1,7 @@
 package View_Controller;
 
 import java.io.IOException;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -27,21 +28,21 @@ public class HomeScreenController {
     
     
     @FXML
-    void customerRecordsFunction() throws IOException {
+    void customerRecordsFunction(ActionEvent event) throws IOException {
         FXMLLoader homeScreen = new FXMLLoader(getClass().getResource("CustomerRecords.fxml"));
         AnchorPane homeScreenPane = homeScreen.load();
         rootPane.getChildren().setAll(homeScreenPane);
     }
     
     @FXML 
-    void appointmentsFucntion() throws IOException {
-        FXMLLoader homeScreen = new FXMLLoader(getClass().getResource("Appointments.fxml"));
-        AnchorPane homeScreenPane = homeScreen.load();
-        rootPane.getChildren().setAll(homeScreenPane);
+    void appointmentsFunction(ActionEvent event) throws IOException {
+        FXMLLoader appts = new FXMLLoader(getClass().getResource("Appointments.fxml"));
+        AnchorPane apptsPane = appts.load();
+        rootPane.getChildren().setAll(apptsPane);
     }
     
     @FXML
-    void reportsFucntion() throws IOException {
+    void reportsFunction(ActionEvent event) throws IOException {
         FXMLLoader homeScreen = new FXMLLoader(getClass().getResource("Reports.fxml"));
         AnchorPane homeScreenPane = homeScreen.load();
         rootPane.getChildren().setAll(homeScreenPane);
