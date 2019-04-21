@@ -42,8 +42,10 @@ public class ReportsController {
     }
 
     @FXML
-    void schedulesFunction() {
-	    return;
+    void schedulesFunction() throws IOException {
+	FXMLLoader homeScreen = new FXMLLoader(getClass().getResource("schedules.fxml"));
+        AnchorPane homeScreenPane = homeScreen.load();
+        rootPane.getChildren().setAll(homeScreenPane);;
     }
 
     @FXML

@@ -13,8 +13,8 @@
          </font>
       </Label>
       <Button fx:id="buttonApptTypes" layoutX="111.0" layoutY="115.0" mnemonicParsing="false" onAction="#typesFunction" prefHeight="64.0" prefWidth="148.0" text="Appointment Types" />
-      <Button fx:id="buttonAudit" layoutX="111.0" layoutY="243.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="148.0" text="Audit User Actions" />
-      <Button fx:id="buttonSchedules" layoutX="356.0" layoutY="115.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="148.0" text="Schedule for Each User" />
+      <Button fx:id="buttonAudit" layoutX="111.0" layoutY="243.0" mnemonicParsing="false" onAction="#auditFunction" prefHeight="64.0" prefWidth="148.0" text="Audit User Actions" />
+      <Button fx:id="buttonSchedules" layoutX="356.0" layoutY="115.0" mnemonicParsing="false" onAction="#schedulesFunction" prefHeight="64.0" prefWidth="148.0" text="Schedule for Each User" />
       <Button fx:id="buttonHome" layoutX="356.0" layoutY="243.0" mnemonicParsing="false" onAction="#homeFunction" prefHeight="64.0" prefWidth="148.0" text="Home" />
    </children>
 </AnchorPane>

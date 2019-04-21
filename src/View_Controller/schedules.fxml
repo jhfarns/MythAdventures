@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="729.0" prefWidth="1035.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.SchedulesReportController">
+   <children>
+      <Label fx:id="labelAppointments" layoutX="475.0" layoutY="14.0" text="Schedules">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableViewAppointments" layoutX="14.0" layoutY="89.0" prefHeight="328.0" prefWidth="997.0">
+        <columns>
+          <TableColumn fx:id="tableColumnCustomerId" prefWidth="74.0" text="CustomerID" />
+          <TableColumn fx:id="tableColumnUserId" prefWidth="68.0" text="UserID" />
+            <TableColumn fx:id="tableColumnTitle" prefWidth="185.0" text="Title" />
+            <TableColumn fx:id="tableColumnType" minWidth="0.0" prefWidth="60.0" text="Type" />
+            <TableColumn fx:id="tableColumnStart" minWidth="0.0" prefWidth="280.0" text="Start" />
+            <TableColumn fx:id="tableColumnEnd" prefWidth="237.0" text="End" />
+            <TableColumn fx:id="tableColumnUrl" minWidth="0.0" prefWidth="92.0" text="URL" />
+        </columns>
+      </TableView>
+      <Button fx:id="buttonHome" layoutX="778.0" layoutY="440.0" mnemonicParsing="false" onAction="#homeFunction" prefHeight="43.0" prefWidth="90.0" text="Home" />
+      <Button fx:id="buttonReports" layoutX="892.0" layoutY="440.0" mnemonicParsing="false" onAction="#reportsFunction" prefHeight="43.0" prefWidth="90.0" text="Reports" />
+   </children>
+</AnchorPane>
