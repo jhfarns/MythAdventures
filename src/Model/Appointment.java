@@ -7,6 +7,7 @@ package Model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.TimeZone;
 import javafx.beans.property.IntegerProperty;
@@ -220,7 +221,8 @@ public class Appointment {
         Query.makeQuery("SELECT * FROM appointment WHERE appointmentId = " + appointmentId);
         ResultSet result = Query.getResult();
         result.first();
-
+	
+	
          startTime.setTimeInMillis(result.getTimestamp("start").getTime());
          endTime.setTimeInMillis(result.getTimestamp("end").getTime());
 

@@ -17,7 +17,7 @@ import java.sql.Statement;
 public class MythConnections {
     
     private static final String databaseName = "U05ceS";
-    private static final String DB_URL = "jdbc:mysql://52.206.157.109/" + databaseName;
+    private static final String DB_URL = "jdbc:mysql://52.206.157.109/" + databaseName + "?useTimezone=true&useLegacyDatetimeCode=false&serverTimezone=UTC&";
     private static final String username = "U05ceS";
     private static final String password = "53688464622";
     private static final String driver = "com.mysql.jdbc.Driver";

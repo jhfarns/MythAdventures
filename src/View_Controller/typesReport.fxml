@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="518.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.TypesReportController">
+   <children>
+      <TableView fx:id="tableViewType" layoutX="209.0" layoutY="106.0" prefHeight="255.0" prefWidth="295.0">
+        <columns>
+          <TableColumn fx:id="tableColumnMonth" prefWidth="159.0" text="Month" />
+          <TableColumn fx:id="tableColumnTypes" prefWidth="135.0" text="Appointment Types" />
+        </columns>
+      </TableView>
+      <Label layoutX="304.0" layoutY="38.0" text="Type Report">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonHome" layoutX="518.0" layoutY="463.0" mnemonicParsing="false" text="Home" />
+      <Button fx:id="buttonReports" layoutX="609.0" layoutY="463.0" mnemonicParsing="false" text="Reports" />
+   </children>
+</AnchorPane>

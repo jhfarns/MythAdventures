@@ -119,14 +119,9 @@ public class AppointmentsAddController {
         //set all values to those in the text box for start and end time
         calendarStart.set(startYear, startMonth, startDate, startHourOfDay, startMinute);
         calendarEnd.set(endYear, endMonth, endDate, endHourOfDay, endMinute);
-        //convert calendar objects to utc
-        //TimeZone.setDefault(GMT);
-        //declare startTime and endTime variables
         startTime = new java.sql.Timestamp(calendarStart.getTimeInMillis());
         endTime = new java.sql.Timestamp(calendarEnd.getTimeInMillis());
-       
         //insert all fields into appointment table
-        
         PreparedStatement ps = MythConnections.preparedStatement("INSERT INTO appointment "
                 + "(customerId, userId, title, description, location, contact, type, url, start,"
                 + " end, createDate, createdBy, lastUpdate, lastUpdateBy) "
@@ -160,5 +155,22 @@ public class AppointmentsAddController {
         FXMLLoader homeScreen = new FXMLLoader(getClass().getResource("Appointments.fxml"));
         AnchorPane homeScreenPane = homeScreen.load();
         rootPane.getChildren().setAll(homeScreenPane);
+    }
+    public void initialize() throws SQLException {
+	    Calendar currentTime = Calendar.getInstance();
+
+	    textFieldUserId.setText(Query.currentId().toString());
+
+	    textFieldStartYear.setText(Integer.toString(currentTime.get(currentTime.YEAR)));
+	    textFieldStartMonth.setText(Integer.toString(currentTime.get(currentTime.MONTH)));
+	    textFieldStartDay.setText(Integer.toString(currentTime.get(currentTime.DATE)));
+	    textFieldStartHour.setText(Integer.toString(currentTime.get(currentTime.HOUR_OF_DAY)));
+	    textFieldStartMin.setText(Integer.toString(currentTime.get(currentTime.MINUTE)));
+
+	    textFieldEndYear.setText(Integer.toString(currentTime.get(currentTime.YEAR)));
+	    textFieldEndMonth.setText(Integer.toString(currentTime.get(currentTime.MONTH)));
+	    textFieldEndDay.setText(Integer.toString(currentTime.get(currentTime.DATE)));
+	    textFieldEndHour.setText(Integer.toString(currentTime.get(currentTime.HOUR_OF_DAY)));
+	    textFieldEndMin.setText(Integer.toString(currentTime.get(currentTime.MINUTE)));
     }
 }
