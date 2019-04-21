@@ -9,10 +9,20 @@
 
 <AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="518.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.TypesReportController">
    <children>
-      <TableView fx:id="tableViewType" layoutX="209.0" layoutY="106.0" prefHeight="255.0" prefWidth="295.0">
+      <TableView fx:id="tableViewType" layoutX="10.0" layoutY="138.0" prefHeight="105.0" prefWidth="693.0">
         <columns>
-          <TableColumn fx:id="tableColumnMonth" prefWidth="159.0" text="Month" />
-          <TableColumn fx:id="tableColumnTypes" prefWidth="135.0" text="Appointment Types" />
+          <TableColumn fx:id="tableColumnJan" prefWidth="77.0" text="JAN" />
+          <TableColumn fx:id="tableColumnFeb" prefWidth="64.0" text="FEB" />
+            <TableColumn fx:id="tableColumnMar" prefWidth="61.0" text="MAR" />
+            <TableColumn fx:id="tableColumnApr" prefWidth="55.0" text="APR" />
+            <TableColumn fx:id="tableColumnMay" prefWidth="56.0" text="MAY" />
+            <TableColumn fx:id="tableColumnJune" prefWidth="56.0" text="JUNE" />
+            <TableColumn fx:id="tableColumnJuly" prefWidth="50.0" text="JULY" />
+            <TableColumn fx:id="tableColumnAug" prefWidth="57.0" text="AUG" />
+            <TableColumn fx:id="tableColumnSept" prefWidth="50.0" text="SEPT" />
+            <TableColumn fx:id="tableColumnOct" prefWidth="53.0" text="OCT" />
+            <TableColumn fx:id="tableColumnNov" prefWidth="59.0" text="NOV" />
+            <TableColumn fx:id="tableColumnDec" prefWidth="54.0" text="DEC" />
         </columns>
       </TableView>
       <Label layoutX="304.0" layoutY="38.0" text="Type Report">

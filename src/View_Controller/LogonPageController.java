@@ -114,5 +114,10 @@ public class LogonPageController {
     public void initialize() {
         Locale location = Locale.getDefault();
         labelLocation.setText("User's Location: " + location.getCountry());
+	System.out.println(location.getDisplayLanguage());
+	if(!location.getDisplayLanguage().equals("English")){
+	labelUsername.setText("nombre de usuario");
+	labelPassword.setText("contraseña");
+	}
     }
 }
