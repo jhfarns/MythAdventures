@@ -107,16 +107,16 @@ public class AppointmentsController {
 	}
     }
     
-    @FXML
-    void deteleFunction() throws SQLException{
-	    Appointment selectedAppointment = tableViewAppointments.getSelectionModel().getSelectedItem();
-	    allAppointments.remove(selectedAppointment);
-
-	    PreparedStatement ps = MythConnections.preparedStatement("DELETE "
-		    + "FROM appointment WHERE appointmentId = ?");
-	    ps.setInt(1, selectedAppointment.getAppointmentId());
-	    ps.executeUpdate();
-    }
+//    @FXML
+//    void deteleFunction() throws SQLException{
+//	    Appointment selectedAppointment = tableViewAppointments.getSelectionModel().getSelectedItem();
+//	    allAppointments.remove(selectedAppointment);
+//
+//	    PreparedStatement ps = MythConnections.preparedStatement("DELETE "
+//		    + "FROM appointment WHERE appointmentId = ?");
+//	    ps.setInt(1, selectedAppointment.getAppointmentId());
+//	    ps.executeUpdate();
+//    }
 
     @FXML
     void weekFunction() throws SQLException {
@@ -275,5 +275,15 @@ public class AppointmentsController {
 			System.out.println(ex.getMessage());
 		}	
 	} 
+	// USE OF LAMBDA JUSTIFICATION - Simple action with not a lot of lines 
+	// of code did not make sense to do all of the extra steps to write a 
+	//fully blown function then tie it to scenebuilder.
+	buttonDelete.setOnAction((event)->{try{Appointment selectedAppointment = tableViewAppointments.getSelectionModel().getSelectedItem();
+	    allAppointments.remove(selectedAppointment);
+
+	    PreparedStatement ps = MythConnections.preparedStatement("DELETE "
+		    + "FROM appointment WHERE appointmentId = ?");
+	    ps.setInt(1, selectedAppointment.getAppointmentId());
+	    ps.executeUpdate();}catch(Exception ex){ex.getMessage();}});
     }
 }

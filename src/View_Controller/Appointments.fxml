@@ -29,7 +29,7 @@
       </TableView>
       <Button fx:id="buttonAdd" layoutX="142.0" layoutY="440.0" mnemonicParsing="false" onAction="#addFunction" prefHeight="43.0" prefWidth="90.0" text="Add" />
       <Button fx:id="buttonHome" layoutX="778.0" layoutY="440.0" mnemonicParsing="false" onAction="#homeFunction" prefHeight="43.0" prefWidth="90.0" text="Home" />
-      <Button fx:id="buttonDelete" layoutX="583.0" layoutY="440.0" mnemonicParsing="false" onAction="#deteleFunction" prefHeight="43.0" prefWidth="90.0" text="Delete" />
+      <Button fx:id="buttonDelete" layoutX="583.0" layoutY="440.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="90.0" text="Delete" />
       <Button fx:id="buttonUpdate" layoutX="385.0" layoutY="440.0" mnemonicParsing="false" onAction="#updateFunction" prefHeight="43.0" prefWidth="90.0" text="Update" />
       <RadioButton fx:id="radioButtonWeek" layoutX="475.0" layoutY="60.0" mnemonicParsing="false" onAction="#weekFunction" selected="true" text="Week">
          <toggleGroup>
