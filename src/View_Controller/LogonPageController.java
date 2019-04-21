@@ -1,7 +1,10 @@
 package View_Controller;
 
 import Model.Query;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.sql.ResultSet;
+import java.util.Calendar;
 import java.util.Locale;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,6 +79,14 @@ public class LogonPageController {
                     
                     //set user to active
                     Query.makeQuery(query2);
+
+		    Calendar loginTime = Calendar.getInstance();
+		    
+		    String filename = "src/view_controller/audit/audit.txt";
+		    FileWriter fwriter = new FileWriter(filename, true);
+		    PrintWriter outputFile = new PrintWriter(fwriter);
+		    outputFile.println("User: '" + Query.currentUser() + "' logged in at " + loginTime.getTime());
+		    outputFile.close();
                     
                     FXMLLoader homeScreen = new FXMLLoader(getClass().getResource("HomeScreen.fxml"));
                     AnchorPane homeScreenPane = homeScreen.load();

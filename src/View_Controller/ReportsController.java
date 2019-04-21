@@ -49,7 +49,9 @@ public class ReportsController {
     }
 
     @FXML
-    void auditFunction(){
-	    return;
+    void auditFunction() throws IOException{
+	FXMLLoader homeScreen = new FXMLLoader(getClass().getResource("AuditReport.fxml"));
+        AnchorPane homeScreenPane = homeScreen.load();
+        rootPane.getChildren().setAll(homeScreenPane);;
     }
 }

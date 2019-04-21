@@ -1,0 +1,7 @@
+User: 'a' logged in at Sun Apr 21 13:42:11 MDT 2019
+User: 'a' logged in at Sun Apr 21 13:47:48 MDT 2019
+User: 'user' logged in at Sun Apr 21 13:49:21 MDT 2019
+User: 'a' logged in at Sun Apr 21 13:49:54 MDT 2019
+User: 'a' logged in at Sun Apr 21 13:56:19 MDT 2019
+User: 'a' logged in at Sun Apr 21 14:00:29 MDT 2019
+User: 'user' logged in at Sun Apr 21 14:01:25 MDT 2019
