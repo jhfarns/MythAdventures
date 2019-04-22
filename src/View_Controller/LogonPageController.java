@@ -1,8 +1,10 @@
 package View_Controller;
 
+import Model.MythConnections;
 import Model.Query;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.Locale;
@@ -92,7 +94,37 @@ public class LogonPageController {
                     AnchorPane homeScreenPane = homeScreen.load();
                     rootPane.getChildren().setAll(homeScreenPane);
                     
-                   
+		    Calendar currentTime = Calendar.getInstance();
+		    Calendar resultTimeTracker = Calendar.getInstance();
+		    PreparedStatement ps = MythConnections.preparedStatement(("SELECT "
+			    + "* FROM appointment WHERE userId = ?"));
+		    ps.setInt(1, Query.currentId());
+		    ps.executeQuery();
+		    ResultSet result1 = ps.getResultSet();
+		    result1.beforeFirst();
+		    while(result1.next()) {
+			resultTimeTracker.setTimeInMillis(result1.getTimestamp("start").getTime());
+			if(resultTimeTracker.get(resultTimeTracker.YEAR) == currentTime.get(currentTime.YEAR)){
+				if(resultTimeTracker.get(resultTimeTracker.MONTH) == currentTime.get(currentTime.MONTH)){
+					if(resultTimeTracker.get(resultTimeTracker.DATE) == currentTime.get(currentTime.DATE)){
+						if(resultTimeTracker.get(resultTimeTracker.HOUR) == currentTime.get(currentTime.HOUR)){
+							if(currentTime.get(currentTime.MINUTE)<= resultTimeTracker.get(resultTimeTracker.MINUTE) && currentTime.get(currentTime.MINUTE)>= (resultTimeTracker.get(resultTimeTracker.MINUTE)-15)){
+								Alert error = new Alert(Alert.AlertType.ERROR, "You have an appointment in "
+									+ (resultTimeTracker.get(resultTimeTracker.MINUTE) - currentTime.get(currentTime.MINUTE)) + " minutes with customer ID " + result1.getInt("customerId")  , ButtonType.CLOSE);
+			    error.showAndWait();
+
+							}
+
+						}
+
+					}
+
+				}
+
+			}
+			System.out.println();
+		    }
+
                 }else {
                     Alert error = new Alert(AlertType.ERROR, "Username or password was incorrect/Nombre de usuario o contraseña incorrecta.", ButtonType.CLOSE);
                     error.showAndWait();
