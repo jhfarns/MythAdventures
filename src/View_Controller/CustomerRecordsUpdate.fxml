@@ -28,6 +28,6 @@
       <TextField fx:id="textFieldCountry" layoutX="183.0" layoutY="218.0" text="Deva" />
       <TextField fx:id="textFieldPostal" layoutX="183.0" layoutY="249.0" text="1234567890" />
       <Label fx:id="labelAddress2" layoutX="66.0" layoutY="160.0" text="Address 2" />
-      <TextField fx:id="textFieldAddress2" layoutX="183.0" layoutY="156.0" />
+      <TextField fx:id="textFieldAddress2" layoutX="183.0" layoutY="156.0" text="none" />
    </children>
 </AnchorPane>

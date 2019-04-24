@@ -17,7 +17,7 @@
       <Label fx:id="labelAddress" layoutX="66.0" layoutY="127.0" text="Address" />
       <Label fx:id="labelPhoneNumber" layoutX="63.0" layoutY="287.0" text="Phone Number" />
       <TextField fx:id="textFieldName" layoutX="183.0" layoutY="93.0" text="Name" />
-      <TextField fx:id="textFieldPhone" layoutX="183.0" layoutY="283.0" text="555-555-5555" />
+      <TextField fx:id="textFieldPhone" layoutX="183.0" layoutY="283.0" text="555 555 5555" />
       <TextField fx:id="textFieldAddress" layoutX="183.0" layoutY="123.0" text="1234 Frumple Lane" />
       <Button fx:id="buttonSave" layoutX="345.0" layoutY="324.0" mnemonicParsing="false" onAction="#saveFunction" prefHeight="43.0" prefWidth="81.0" text="Save" />
       <Button fx:id="buttonCancel" layoutX="449.0" layoutY="324.0" mnemonicParsing="false" onAction="#cancelFunction" prefHeight="43.0" prefWidth="81.0" text="Cancel" />
@@ -28,6 +28,6 @@
       <TextField fx:id="textFieldCountry" layoutX="183.0" layoutY="218.0" text="Deva" />
       <TextField fx:id="textFieldPostal" layoutX="183.0" layoutY="249.0" text="1234567890" />
       <Label fx:id="labelAddress2" layoutX="66.0" layoutY="160.0" text="Address 2" />
-      <TextField fx:id="textFieldAddress2" layoutX="183.0" layoutY="156.0" />
+      <TextField fx:id="textFieldAddress2" layoutX="183.0" layoutY="156.0" text="none" />
    </children>
 </AnchorPane>

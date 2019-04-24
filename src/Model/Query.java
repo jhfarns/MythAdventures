@@ -88,4 +88,20 @@ public class Query {
 	    }
 	    return true;
     }
+    
+    public static boolean isSpecial(String string) {
+	    char[] str = string.toCharArray();
+	    String special = "~`!@#$%^&*()_-+=?/.>,<";
+	    char[] spc = special.toCharArray();
+
+	    for(char c : str){
+		for(char s : spc) {
+			if(s == c){
+				return true;
+			}
+
+		}
+	    }
+	    return false;
+    }
 }

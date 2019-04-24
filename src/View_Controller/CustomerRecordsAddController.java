@@ -6,9 +6,12 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -79,7 +82,34 @@ public class CustomerRecordsAddController {
     }
     
     @FXML void saveFunction() throws SQLException, IOException{
+	
+	ArrayList<String> inputFields = new ArrayList<String>();
+	inputFields.add(textFieldName.getText());
+	inputFields.add(textFieldCity.getText());
+	inputFields.add(textFieldCountry.getText());
+	inputFields.add(textFieldAddress.getText());
+	inputFields.add(textFieldAddress2.getText());
+	inputFields.add(textFieldPostal.getText());
+	inputFields.add(textFieldPhone.getText());
 		
+	for (String str : inputFields){
+		if(Query.isSpecial(str)){
+			Alert error = new Alert(Alert.AlertType.ERROR, str + " Contains and invalid character, please remove it and resubmit"
+			 , ButtonType.CLOSE);
+                    	error.showAndWait();	
+			return;
+		}
+	}
+
+	for (String str : inputFields){
+		if(str.isEmpty()){
+			Alert error = new Alert(Alert.AlertType.ERROR, "There is an empty field, please insert data and resubmit"
+			 , ButtonType.CLOSE);
+                    	error.showAndWait();	
+			return;
+		}
+	}
+
         //Country
         PreparedStatement ps = MythConnections.preparedStatement("INSERT INTO country (country, createDate, createdby, lastUpdate, lastUpdateBy) VALUES (?,NOW(),?,NOW(),?)");
         ps.setString(1, textFieldCountry.getText());
