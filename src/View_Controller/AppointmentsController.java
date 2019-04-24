@@ -107,17 +107,6 @@ public class AppointmentsController {
 	}
     }
     
-//    @FXML
-//    void deteleFunction() throws SQLException{
-//	    Appointment selectedAppointment = tableViewAppointments.getSelectionModel().getSelectedItem();
-//	    allAppointments.remove(selectedAppointment);
-//
-//	    PreparedStatement ps = MythConnections.preparedStatement("DELETE "
-//		    + "FROM appointment WHERE appointmentId = ?");
-//	    ps.setInt(1, selectedAppointment.getAppointmentId());
-//	    ps.executeUpdate();
-//    }
-
     @FXML
     void weekFunction() throws SQLException {
 	//Create two calendar instances, one for the miniumum and one for th 
@@ -180,6 +169,8 @@ public class AppointmentsController {
 	tableColumnStart.setCellValueFactory(new PropertyValueFactory("start"));
 	tableColumnEnd.setCellValueFactory(new PropertyValueFactory("end"));
 	tableColumnUrl.setCellValueFactory(new PropertyValueFactory("url"));
+
+	tableViewAppointments.getSortOrder().add(tableColumnStart);
 
     }
 
@@ -246,6 +237,8 @@ public class AppointmentsController {
 	tableColumnStart.setCellValueFactory(new PropertyValueFactory("start"));
 	tableColumnEnd.setCellValueFactory(new PropertyValueFactory("end"));
 	tableColumnUrl.setCellValueFactory(new PropertyValueFactory("url"));
+
+	tableViewAppointments.getSortOrder().add(tableColumnStart);
     }
     //Radio button when week is selected find the minium value for the day of the
     //week and then find the maximum value of the day of the week as related to the month

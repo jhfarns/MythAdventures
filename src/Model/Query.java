@@ -67,4 +67,25 @@ public class Query {
         Integer generatedKey = result.getInt(1);
         return generatedKey;
     }
+
+    public static boolean isAlpha(String string){
+	  char[] chars = string.toCharArray();
+
+	  for (char c : chars){
+		if(!Character.isLetter(c)){
+			return false;
+		}
+	  }
+	return true;  
+    }
+
+    public static boolean isNumeric(String string){
+
+	    try {
+		    Double num = Double.parseDouble(string);
+	    } catch(NumberFormatException e){
+		    return false;
+	    }
+	    return true;
+    }
 }

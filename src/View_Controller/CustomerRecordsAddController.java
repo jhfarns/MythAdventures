@@ -79,6 +79,7 @@ public class CustomerRecordsAddController {
     }
     
     @FXML void saveFunction() throws SQLException, IOException{
+		
         //Country
         PreparedStatement ps = MythConnections.preparedStatement("INSERT INTO country (country, createDate, createdby, lastUpdate, lastUpdateBy) VALUES (?,NOW(),?,NOW(),?)");
         ps.setString(1, textFieldCountry.getText());
